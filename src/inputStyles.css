@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  /*this varible it's necessary to tigger the type animation, it is update by javascript*/
+    --n: 0;
+}
+/*this animation load every question section*/
+.anima{
+    animation: transitionIn 0.75s;
+}
+@keyframes transitionIn {
+    from{
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+/*this animation animate the answer of chat gpt-3*/
+.type {
+    /*the variable "n" represents the numbers of characters of the text we'll animate*/
+    font-family: monospace;
+    color:#0000;
+    background:
+      linear-gradient(-90deg,black 5px,#0000 0) 10px 0,
+      linear-gradient(black 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    -webkit-background-clip:padding-box,text;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.05s) steps(var(--n)) forwards;
+  }
+  @keyframes t{
+    from {background-size:0 200%}
+  }
+  @keyframes b{
+    50% {background-position:0 -100%,0 0}
+  }
+
+  /*this styles animate the tooltip animation of the copy button*/
+  #copy_tooltip{
+    display: block;
+    font-size: 80%;
+    position: absolute;
+    background: white;
+    color: #3b82f6;
+    padding: 4px 8px;
+    
+    border-radius: 4px;
+    width: 84px;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    margin: auto;
+    border-radius: 9999px;
+    border: 1px solid;
+    opacity: 0;        
+  }
+  #copy_tooltip::after{
+    content: '';
+    position: absolute;
+    top: 98%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-top: 8px solid #3b82f6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+  }
+  #copy_tooltip.active{
+    animation: slide-up 0.15s cubic-bezier(.51, .92, 0.265, 1.55) both;
+  }
+  #copy_tooltip.inactive{
+    animation: slide-up 0.15s cubic-bezier(.250, .460, .450, .940) reverse both;  
+  }
+  @keyframes slide-up {
+    0% {
+        -webkit-transform: translateY(0) scale(.8);
+                transform: translateY(0) scale(.8);
+        opacity: 0;         
+    }
+    100% {
+        -webkit-transform: translateY(-35px) scale(1);
+                transform: translateY(-35px) scale(1);
+        opacity: 1;
+    }
+}
+  /*For a reason, tailwind doesn't allow to combine pseudoclasses, so i need to do it manually*/
+  #input2:hover:invalid{
+    border-color: #EF4444;
+  }
+  /*tigger this class with javascript in invalid summmit*/
+  .invalidClass{
+    color:#EF4444;
+    outline: 2px solid #EF4444; 
+    border-color: #EF4444;
+  }
+  .invalidClass:hover{
+    border-color: #EF4444 !important;
+  }
+
+  .error {
+    position: relative; /*FOR ANY ANIMATION IT SHOLUD BE RELATIVE*/
+    animation: shake 0.2s;
+  }
+  
+  @keyframes shake {
+    0%,100%{
+      left: 0px;
+    }
+    20%,80%{
+      left: -15px;
+    }
+    40%,60%{
+      left: 15px;
+    }
+  }
+
+  select:disabled, input:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#burger:checked + #mobileMenu{
+  display: block;
+}

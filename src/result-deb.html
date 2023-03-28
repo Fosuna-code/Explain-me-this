@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/outputStyle.css">
+    <script src="./ty.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <section class="w-full h-screen">
+
+        <div class="flex flex-col items-center h-full pt-5" id="resultSection">
+            <div class="p-4 text-2xl text-blue-700">Result</div>
+            <ul class="flex items-center justify-center gap-6 pb-8">
+                <div class="flex flex-col justify-center items-center gap-3 ">
+                    <label class="text-blue-600" for="topic">Topic</label>
+                    <li><input class="inputResult" value="Calculus" type="text" name="topic" id="topic" class="border rounded-lg border-blue-200 p-1"></li>
+                </div>
+                
+                
+                <div class="flex flex-col justify-center items-center gap-3 ">
+                    <label class="text-blue-600" for="age">Age</label>
+                    <li><input class="inputResult" value="14" type="text" name="age" id="age" class="border rounded-lg border-blue-200 p-1"></li>
+                </div>
+                
+                <div class="flex flex-col justify-center items-center gap-3 ">
+                    <label class="text-blue-600" for="degree">Degree</label>
+                    <li><input class="inputResult" value="high school" type="text" name="degree" id="degree"class="border rounded-lg border-blue-200 p-1"></li>
+                </div>
+                
+                <div class="flex flex-col justify-center items-center gap-3 ">
+                    <label class="text-blue-600" for="level">Level</label>
+                    <li><input class="inputResult" value="Begginer" type="text" name="level" id="level"class="border rounded-lg border-blue-200 p-1"></li>
+                </div>
+
+               
+            </ul>
+            <div class="p-4 text-xl max-w-[900px]" id="result">
+                <span class="">Calculus is a branch of mathematics that deals with the study of change. It is used to find the rate of change of a function (called the derivative) and the area under a curve (called the integral). Calculus is used to solve problems in many areas of science, engineering, economics, and medicine. It is also used to model physical phenomena, such as the motion of objects. Calculus can be thought of as a toolbox of techniques that can be used to solve problems involving change.</span> 
+                <div class="flex justify-between pt-4">
+                    <button class="px-4 py-3 bg-blue-500 text-gray-200 text-xs font-semibold rounded hover:bg-blue-700 inline-block w-24 self-start	relative overflow-visible" id='copy' href="./questions.html">Copy text
+                        <span id="copy_tooltip" aria-live="assertive" role="tooltip">Text copied!</span>
+                    </button>
+                    <button class="px-4 py-3 bg-blue-500 text-gray-200 text-xs font-semibold rounded enabled:hover:bg-blue-700 inline-block w-36 disabled:opacity-50 disabled:cursor-not-allowed" disabled id='new' href="./questions.html">Load new answer</button>
+                </div>
+            </div>
+            
+        </div>
+        
+    </section>
+</body>
+</html>

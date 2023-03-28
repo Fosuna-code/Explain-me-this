@@ -1,0 +1,32 @@
+{
+  "name": "explain-me-this",
+  "version": "1.0.0",
+  "description": "Explain me this is a website that allows you to create customizable explications for any topic using Open AI API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx tailwindcss -i ./src/inputStyles.css -o ./dist/outputStyle.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fosuna-code/Explain-me-this.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fosuna-code/Explain-me-this/issues"
+  },
+  "homepage": "https://github.com/Fosuna-code/Explain-me-this#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "install": "^0.13.0",
+    "npm": "^9.6.0",
+    "openai": "^3.2.1",
+    "tailwindcss-animatecss": "^3.0.2",
+    "typed.js": "^2.0.12"
+  }
+}
