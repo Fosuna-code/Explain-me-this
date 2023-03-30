@@ -41,15 +41,15 @@
                     <li>
                         <input class="peer appearance-none " name="level" type="radio" id="radio1" ></input>
 
-                        <label class="flex peer-checked: border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio1">
+                        <label class="flex peer-focus:border-blue-500 border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio1">
                             Begginer
                         </label>
                     </li>
                     
                     <li>
-                        <input class="peer appearance-none " type="radio" id="radio2" name="level"></input>
+                        <input  class="peer appearance-none " type="radio" id="radio2" name="level"></input>
 
-                        <label class="flex   peer-checked: border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio2">
+                        <label class="flex   peer-focus:border-blue-500 border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio2">
                             Intermediate
                         </label>
                     </li>
@@ -57,7 +57,7 @@
                     <li>
                         <input class="peer appearance-none " type="radio" id="radio3" name="level"></input>
 
-                        <label class="flex peer-checked: border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio3">
+                        <label class="flex peer-focus:border-blue-500 border peer-checked:border-blue-700 peer-hover:border-blue-500 p-3 rounded cursor-pointer" for="radio3">
                             Expert
                         </label>
                     </li>
@@ -102,20 +102,21 @@
               </div>
         </div>
 
-        <div class="flex flex-col items-center h-full  pt-4 " id="resultSection">
+        <div class="flex flex-col items-center h-full  pt-4 hidden" id="resultSection">
             <div class="p-4 text-2xl text-blue-700">Result</div>
-            <label for="burger">
-                <input id="burger" type="checkbox" class="w-8 h-8 absolute  left-3  mdResult:hidden ">
-                <div id="mobileMenu" class="hidden fixed top-1 left-1 w-[50vw] h-screen border border-blue-500">
+                <label for="burger"></label>
+                <input id="burger" type="checkbox" class="w-8 h-8 absolute  left-3  mdResult:hidden z-10 appearance-none">
+                <!-- <div id="mobileMenu" class="hidden fixed top-1 left-1 w-[50vw] h-screen border border-blue-500">
                     <p>hola</p>
-                </div>
-                <svg id="burgerIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" class="absolute left-3  mdResult:hidden"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>
-            </label>
+                </div> -->
+                <!-- <svg id="burgerIcon" class="absolute left-3  mdResult:hidden z-[9]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" ><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg> -->
+                <div class="burgerIcon absolute left-3  mdResult:hidden z-[9]"><span></span></div>
+
                 
 
             
             
-            <ul class=" grid-rows-1 mdResult:grid mdResult:grid-cols-2 lgResult:grid lgResult:grid-cols-4  gap-6 pb-8 hidden">
+            <ul id="menu" class=" grid-rows-4 mdResult:grid mdResult:grid-cols-2 mdResult:grid-rows-2 lgResult:grid lgResult:grid-cols-4  gap-6 pb-8">
                 <div class="flex flex-col justify-center items-center gap-3 relative">
                     <label class="text-blue-600 peer" for="topic">Topic</label>
                     <input value="Calculus" type="text" name="topic" id="topic" class="border rounded-lg border-blue-200 p-1 text-center inputResult w-[215px]">
@@ -158,7 +159,7 @@
                     
                         <button class="relative px-4 py-3 bg-blue-500 text-gray-200 text-xs font-semibold rounded enabled:hover:bg-blue-700 inline-block w-36 disabled:opacity-50 disabled:cursor-not-allowed" disabled id='new' href="./questions.html">
                             Load new answer
-                            <svg id="loadResultIcon" class=" hidden animate-spin -ml-1 mr-3 h-10 w-10 text-blue-700 absolute right-[-60px] top-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <svg id="loadResultIcon" class=" hidden animate-spin -ml-1 mr-3 h-10 w-10 text-blue-700 absolute top-[-50px] right-[30px] mdResult:right-[-60px] mdResult:top-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>

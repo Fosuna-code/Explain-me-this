@@ -128,7 +128,89 @@
   cursor: not-allowed;
   opacity: 0.5;
 }
+/*this styles are to change the behavior of the menu in mobile*/
+@media (max-width:499px) {
+  #menu{
+    display: grid;
+    position: fixed;
+    top: 4px;
+    left: 4px;
+    z-index: 2;
+    background-color: white;
+    padding-right: 8px;
+    border-right: 1px solid #BFDBFE;
+    border-bottom: 1px solid #BFDBFE;
+    height: calc(100vh - 5px);
+    gap: 2px;
 
-#burger:checked + #mobileMenu{
-  display: block;
+    transform: translateX(-280px);
+    transition: transform 0.35s;
+  
+  }
+
 }
+#burger:checked ~ #menu{
+
+  transition: transform 0.35s;
+  transform: translate3d(0, 0, 0) 
+}
+ /*in tihs part, i created the burger icon and ther animation*/
+.burgerIcon {
+	/* position: relative; */
+	display:  inline-block;
+	width: 30px;
+	height: 30px;
+	/* margin: 25px; */
+}
+.burgerIcon span {
+	margin: 0 auto;
+	position: relative;
+	top: 12px;
+}
+.burgerIcon span:before, .burgerIcon span:after {
+	position: absolute;
+	content: '';
+}
+.burgerIcon span, .burgerIcon span:before, .burgerIcon span:after {
+	width: 30px;
+	height: 4px;
+	background-color: #000;
+	display: block;
+}
+.burgerIcon span:before {
+	margin-top: -10px;
+}
+.burgerIcon span:after {
+	margin-top: 10px;
+}
+
+/*Animation to tranform the burger icon in Exit Icon if the menu it's open*/
+.burgerIcon span {
+	-webkit-transition-duration: 0s; transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+#burger:checked ~ .burgerIcon span {
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+.burgerIcon span:before {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+}
+#burger:checked ~ .burgerIcon span:before {
+	margin-top: 0;
+	-webkit-transform: rotate(45deg); transform: rotate(45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+.burgerIcon span:after {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+}
+#burger:checked ~ .burgerIcon span:after {
+	margin-top: 0;
+	-webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+

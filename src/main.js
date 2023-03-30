@@ -144,6 +144,7 @@ function isvalueValid(value){
 async function loadResultSection(topic,age,degree,level){
   try {
     const response = await fetchData(getUrl(topic,age,degree,level));
+    console.log('hol')
     // remove all the unnecesary break lines
     const answer = response.choices[0].text.replace(/(\r\n|\n|\r)/gm, "");
     result.innerText = answer;
@@ -248,7 +249,8 @@ fourNext.addEventListener('click', (e) =>{
   }
 
   // getting the label relate to the input (there's just one so it would always be the 0 index)
-  levelName = levelInput?.labels?.item(0).textContent;
+  levelName = levelInput?.labels?.item(0).textContent.trim();
+  // console.log(levelName)
   findlabelandset('Level',levelName);
   hideAndShow(formContainer4,loadingSection);
   
