@@ -17,6 +17,11 @@ const invalidDegree = document.querySelector('#invalidDegree');
 const formContainer4 = document.querySelector('#formContainer4');
 const fourNext = document.querySelector('#next4');
 const radios = document.getElementsByName('level');
+Array.from(radios).forEach((value) =>{
+  value.addEventListener('focus',() =>{
+    value.checked = true;
+  })
+})
 let levelInput;
 let levelName;
 const invalidLevel = document.querySelector('#invalidLevel');
@@ -67,7 +72,7 @@ async function fetchData(urlAPi) {
 
 //this function help me to create the api url to make the request
 function getUrl(topic,age,degree,level){
-  return `http://127.0.0.1:3001/?topic=${topic}&age=${age}&degree=${degree}&level=${level}`
+  return `https://explainmethisbackend.onrender.com/?topic=${topic}&age=${age}&degree=${degree}&level=${level}`
 }
 
 // This tigger a typing animation
