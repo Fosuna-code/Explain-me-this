@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  /*this varible it's necessary to tigger the type animation, it is update by javascript*/
+    --n: 0;
+}
+/*this animation load every question section*/
+.anima{
+    animation: transitionIn 0.75s;
+}
+@keyframes transitionIn {
+    from{
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+/*this animation animate the answer of chat gpt-3*/
+.type {
+    /*the variable "n" represents the numbers of characters of the text we'll animate*/
+    font-family: monospace;
+    color:#0000;
+    background:
+      linear-gradient(-90deg,black 5px,#0000 0) 10px 0,
+      linear-gradient(black 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    -webkit-background-clip:padding-box,text;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.05s) steps(var(--n)) forwards;
+  }
+  @keyframes t{
+    from {background-size:0 200%}
+  }
+  @keyframes b{
+    50% {background-position:0 -100%,0 0}
+  }
+
+  /*this styles animate the tooltip animation of the copy button*/
+  #copy_tooltip{
+    display: block;
+    font-size: 80%;
+    position: absolute;
+    background: white;
+    color: #3b82f6;
+    padding: 4px 8px;
+    
+    border-radius: 4px;
+    width: 84px;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    margin: auto;
+    border-radius: 9999px;
+    border: 1px solid;
+    opacity: 0;        
+  }
+  #copy_tooltip::after{
+    content: '';
+    position: absolute;
+    top: 98%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-top: 8px solid #3b82f6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+  }
+  #copy_tooltip.active{
+    animation: slide-up 0.15s cubic-bezier(.51, .92, 0.265, 1.55) both;
+  }
+  #copy_tooltip.inactive{
+    animation: slide-up 0.15s cubic-bezier(.250, .460, .450, .940) reverse both;  
+  }
+  @keyframes slide-up {
+    0% {
+        -webkit-transform: translateY(0) scale(.8);
+                transform: translateY(0) scale(.8);
+        opacity: 0;         
+    }
+    100% {
+        -webkit-transform: translateY(-35px) scale(1);
+                transform: translateY(-35px) scale(1);
+        opacity: 1;
+    }
+}
+  /*For a reason, tailwind doesn't allow to combine pseudoclasses, so i need to do it manually*/
+  #input2:hover:invalid{
+    border-color: #EF4444;
+  }
+  /*tigger this class with javascript in invalid summmit*/
+  .invalidClass{
+    color:#EF4444;
+    outline: 2px solid #EF4444; 
+    border-color: #EF4444;
+  }
+  .invalidClass:hover{
+    border-color: #EF4444 !important;
+  }
+
+  .error {
+    position: relative; /*FOR ANY ANIMATION IT SHOLUD BE RELATIVE*/
+    animation: shake 0.2s;
+  }
+  
+  @keyframes shake {
+    0%,100%{
+      left: 0px;
+    }
+    20%,80%{
+      left: -15px;
+    }
+    40%,60%{
+      left: 15px;
+    }
+  }
+
+  select:disabled, input:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/*this styles are to change the behavior of the menu in mobile*/
+@media (max-width:499px) {
+  #menu{
+    display: grid;
+    position: fixed;
+    top: 4px;
+    left: 4px;
+    z-index: 2;
+    background-color: white;
+    padding-right: 8px;
+    border-right: 1px solid #BFDBFE;
+    border-bottom: 1px solid #BFDBFE;
+    height: calc(100vh - 5px);
+    gap: 2px;
+
+    transform: translateX(-280px);
+    transition: transform 0.35s;
+  
+  }
+
+}
+#burger:checked ~ #menu{
+
+  transition: transform 0.35s;
+  transform: translate3d(0, 0, 0) 
+}
+ /*in tihs part, i created the burger icon and ther animation*/
+.burgerIcon {
+	/* position: relative; */
+	display:  inline-block;
+	width: 30px;
+	height: 30px;
+	/* margin: 25px; */
+}
+.burgerIcon span {
+	margin: 0 auto;
+	position: relative;
+	top: 12px;
+}
+.burgerIcon span:before, .burgerIcon span:after {
+	position: absolute;
+	content: '';
+}
+.burgerIcon span, .burgerIcon span:before, .burgerIcon span:after {
+	width: 30px;
+	height: 4px;
+	background-color: #000;
+	display: block;
+}
+.burgerIcon span:before {
+	margin-top: -10px;
+}
+.burgerIcon span:after {
+	margin-top: 10px;
+}
+
+/*Animation to tranform the burger icon in Exit Icon if the menu it's open*/
+.burgerIcon span {
+	-webkit-transition-duration: 0s; transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+#burger:checked ~ .burgerIcon span {
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+.burgerIcon span:before {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+}
+#burger:checked ~ .burgerIcon span:before {
+	margin-top: 0;
+	-webkit-transform: rotate(45deg); transform: rotate(45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+.burgerIcon span:after {
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+}
+#burger:checked ~ .burgerIcon span:after {
+	margin-top: 0;
+	-webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+
