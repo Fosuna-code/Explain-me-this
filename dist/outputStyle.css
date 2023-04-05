@@ -563,10 +563,6 @@ video {
   visibility: hidden;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -599,10 +595,6 @@ video {
   bottom: 10px;
 }
 
-.left-1 {
-  left: 0.25rem;
-}
-
 .left-3 {
   left: 0.75rem;
 }
@@ -615,8 +607,8 @@ video {
   right: 30px;
 }
 
-.top-1 {
-  top: 0.25rem;
+.top-3 {
+  top: 0.75rem;
 }
 
 .top-\[-50px\] {
@@ -806,10 +798,6 @@ video {
   width: 215px;
 }
 
-.w-\[50vw\] {
-  width: 50vw;
-}
-
 .w-\[70px\] {
   width: 70px;
 }
@@ -940,11 +928,6 @@ video {
   border-color: rgb(191 219 254 / var(--tw-border-opacity));
 }
 
-.border-blue-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
-}
-
 .border-blue-700 {
   --tw-border-opacity: 1;
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
@@ -1054,10 +1037,6 @@ video {
 
 .pt-12 {
   padding-top: 3rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
 }
 
 .text-center {
@@ -1407,14 +1386,14 @@ select:disabled, input:disabled {
   #menu{
     display: grid;
     position: fixed;
-    top: 4px;
+    top: 0;
     left: 4px;
     z-index: 2;
     background-color: white;
     padding-right: 8px;
     border-right: 1px solid #BFDBFE;
     border-bottom: 1px solid #BFDBFE;
-    height: calc(100vh - 5px);
+    height: 100vh;
     gap: 2px;
     transform: translateX(-280px);
     transition: transform 0.35s;
@@ -1424,6 +1403,14 @@ select:disabled, input:disabled {
 #burger:checked ~ #menu{
   transition: transform 0.35s;
   transform: translate3d(0, 0, 0)
+}
+
+#burger:checked{
+  position: fixed;
+}
+
+#burger:checked + .burgerIcon{
+  position: fixed;
 }
 
 /*in tihs part, i created the burger icon and ther animation*/
@@ -1700,10 +1687,6 @@ select:disabled, input:disabled {
 }
 
 @media (min-width: 924px) {
-  .lgResult\:grid {
-    display: grid;
-  }
-
   .lgResult\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

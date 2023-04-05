@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./dist/outputStyle.css">
     <script type="module" src="./main.js" defer></script>
-    <title>Creating answers</title>
+    <title>Explain me this - Questions</title>
 </head>
 <body>
     <section class="w-full h-screen">
@@ -97,20 +98,16 @@
                 </button> -->
           
                 <button class="flex-1 px-4 py-2 ml-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-md" id="tryAgain">
-                  Try again
+                  Try again5
                 </button>
               </div>
         </div>
 
-        <div class="flex flex-col items-center h-full  pt-4 hidden" id="resultSection">
+        <div class="flex flex-col items-center h-full  hidden" id="resultSection">
             <div class="p-4 text-2xl text-blue-700">Result</div>
                 <label for="burger"></label>
-                <input id="burger" type="checkbox" class="w-8 h-8 absolute  left-3  mdResult:hidden z-10 appearance-none">
-                <!-- <div id="mobileMenu" class="hidden fixed top-1 left-1 w-[50vw] h-screen border border-blue-500">
-                    <p>hola</p>
-                </div> -->
-                <!-- <svg id="burgerIcon" class="absolute left-3  mdResult:hidden z-[9]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" ><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg> -->
-                <div class="burgerIcon absolute left-3  mdResult:hidden z-[9]"><span></span></div>
+                <input id="burger" type="checkbox" class=" absolute w-8 h-8 top-3  left-3  mdResult:hidden z-10 appearance-none ">
+                <div class=" absolute burgerIcon top-3 left-3  mdResult:hidden z-[9]"><span></span></div>
 
                 
 
@@ -151,7 +148,7 @@
                
             </ul>
             <div class="p-4 text-xl max-w-[900px]">
-                <span class="type" id="result"></span> 
+                <span class="type" id="result">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque odit nam, vero quaerat ipsam vel odio numquam voluptate facilis totam tempora quidem fugiat aliquam neque saepe facere beatae omnis. Eum!</span> 
                 <div class="flex justify-between pt-12">
                     <button class="px-4 py-3 bg-blue-500 text-gray-200 text-xs font-semibold rounded hover:bg-blue-700 inline-block w-24 self-start	relative overflow-visible" id='copy' href="./questions.html">Copy text
                         <span id="copy_tooltip" aria-live="assertive" role="tooltip">Text copied!</span>

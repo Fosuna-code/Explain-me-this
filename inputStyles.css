@@ -133,14 +133,14 @@
   #menu{
     display: grid;
     position: fixed;
-    top: 4px;
+    top: 0;
     left: 4px;
     z-index: 2;
     background-color: white;
     padding-right: 8px;
     border-right: 1px solid #BFDBFE;
     border-bottom: 1px solid #BFDBFE;
-    height: calc(100vh - 5px);
+    height: 100vh;
     gap: 2px;
 
     transform: translateX(-280px);
@@ -154,6 +154,13 @@
   transition: transform 0.35s;
   transform: translate3d(0, 0, 0) 
 }
+#burger:checked{
+  position: fixed;
+}
+#burger:checked + .burgerIcon{
+  position: fixed;
+}
+
  /*in tihs part, i created the burger icon and ther animation*/
 .burgerIcon {
 	/* position: relative; */
